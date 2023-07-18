@@ -5,15 +5,14 @@ pokemonList = [
   { name: "Charmander", height: 0.6, types: ["fire"] },
   { name: "Squirtle", height: 0.5, types: ["water"] },
 ];
-let bigPokemon = "wow thats big!";
-let pokemonInfo;
 
-for (let i = 0; i < pokemonList.length; i++) {
-  pokemonInfo =
-    pokemonList[i].name + ` ` + `(height: ${pokemonList[i].height})`;
-  if (pokemonList[i].height > 1) {
-    document.write(pokemonInfo + bigPokemon + `</br>`);
+pokemonList.forEach(function (item) {
+  let pokemonInfo = item.name + `  (height: ${item.height})`;
+  let bigPokemon = "  -wow thats big!";
+
+  if (item.height > 1) {
+    document.write(`<p>` + pokemonInfo + bigPokemon + `</p>`);
   } else {
-    document.write(pokemonInfo + `</br>`);
+    document.write(`<p>` + pokemonInfo + `</p>`);
   }
-}
+});
