@@ -1,0 +1,19 @@
+:root {
+  @font-family: "Open Sans", sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+.button {
+  width: 250px;
+  height: 100px;
+  margin: 20px;
+  /* border: 2px solid pink; */
+  background-color: rgb(255, 241, 244);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "open sans";
+  font-weight: 600;
+}
