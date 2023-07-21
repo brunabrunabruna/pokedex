@@ -3,7 +3,7 @@ let pokemonRepository = (function () {
 
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
-  //load list of pokemons
+  //load list of pokemons from the api url, when/ if loaded calls add() function to push items to pokemonList array
   function loadList() {
     return fetch(apiUrl)
       .then(function (response) {
@@ -23,6 +23,8 @@ let pokemonRepository = (function () {
       });
   }
 
+  //loads some details inside the pokemon objects: pokemon > detailsUrl > details. then map these details to item.height, item.types, etc.
+  //the item parameter will be refering to the individual pokemon objs
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
