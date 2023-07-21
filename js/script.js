@@ -1,28 +1,54 @@
 let pokemonRepository = (function () {
-  let pokemonList = [
-    { name: "Bulbasaur", height: 0.7, types: ["grass", "poison"] },
-    { name: "Ivysaur", height: 1.2, types: ["grass", "poison"] },
-    { name: "Charmander", height: 0.6, types: ["fire"] },
-    { name: "Squirtle", height: 0.5, types: ["water"] },
-  ];
+  let pokemonList = [];
+
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+
+  //load list of pokemons
+  function loadList() {
+    return fetch(apiUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        json.results.forEach(function (item) {
+          let pokemon = {
+            name: item.name,
+            detailsUrl: item.url,
+          };
+          add(pokemon);
+        });
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
+  }
+
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (details) {
+        //adds details to the item
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = details.types;
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
+  }
 
   //adds a new pokemon to the end of the list
   function add(newPokemon) {
-    if (typeof newPokemon === "object") {
-      let newPokemonKeys = Object.keys(newPokemon);
-      let pokemonListKeys = Object.keys(pokemonList[0]);
-
-      if (newPokemonKeys.length === pokemonListKeys.length) {
-        for (let i = 0; i < newPokemonKeys.length; i++) {
-          if (pokemonListKeys.includes(newPokemonKeys[i]) === false) {
-            return false;
-          }
-        }
-
-        pokemonList.push(newPokemon);
-      } else {
-        console.log("wrong input");
-      }
+    //checks if the new pokemon obj has the same properties as the first pokemon on the list (our default). If it does then it can push
+    if (
+      typeof newPokemon === "object" &&
+      "name" in newPokemon &&
+      "detailsUrl" in newPokemon
+    ) {
+      pokemonList.push(newPokemon);
     } else console.log("wrong input");
   }
   //returns whole pokemon list
@@ -30,9 +56,12 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  //logs pokemon name to console
+  //logs pokemon details to console
   function showDetails(pokemon) {
-    console.log(pokemon.name);
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
+    // console.log(pokemon.name, pokemon.detailsUrl);
   }
 
   //adds html element (li & button) to every pokemon of the list
@@ -55,14 +84,21 @@ let pokemonRepository = (function () {
   }
 
   //returns all the functions that can be accessed from outside of main function here
-  return { add: add, getAll: getAll, addListItem: addListItem };
+  return {
+    add: add,
+    getAll: getAll,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    addListItem: addListItem,
+    showDetails: showDetails,
+  };
 })();
 
-//adds new pokemon to the list
-pokemonRepository.add({ name: "pikachu", height: 0.5, types: ["water"] });
-console.log(pokemonRepository.getAll());
+pokemonRepository.loadList().then(function () {
+  //now data is loaded!
 
-//generates new li and button itens for each pokemon on the list
-pokemonRepository.getAll().forEach(function (item) {
-  pokemonRepository.addListItem(item);
+  //generates new li and button itens for each pokemon on the list
+  pokemonRepository.getAll().forEach(function (item) {
+    pokemonRepository.addListItem(item);
+  });
 });
