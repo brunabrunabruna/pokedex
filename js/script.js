@@ -25,17 +25,17 @@ let pokemonRepository = (function () {
 
   //loads some details inside the pokemon objects: pokemon > detailsUrl > details. then map these details to item.height, item.types, etc.
   //the item parameter will be refering to the individual pokemon objs
-  function loadDetails(item) {
-    let url = item.detailsUrl;
+  function loadDetails(pokemon) {
+    let url = pokemon.detailsUrl;
     return fetch(url)
       .then(function (response) {
         return response.json();
       })
       .then(function (details) {
         //adds details to the item
-        item.imageUrl = details.sprites.front_default;
-        item.height = details.height;
-        item.types = details.types;
+        pokemon.imageUrl = details.sprites.front_default;
+        pokemon.height = details.height;
+        pokemon.types = details.types;
       })
       .catch(function (e) {
         console.error(e);
@@ -100,7 +100,7 @@ pokemonRepository.loadList().then(function () {
   //now data is loaded!
 
   //generates new li and button itens for each pokemon on the list
-  pokemonRepository.getAll().forEach(function (item) {
-    pokemonRepository.addListItem(item);
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
   });
 });
