@@ -164,7 +164,7 @@ function showModal(pokemon) {
   //height
   let modalPokemonHeight = document.createElement("p");
   modalPokemonHeight.classList.add("modal-pokemon-height");
-  modalPokemonHeight.innerText = `height: ${pokemon.height} m.`;
+  modalPokemonHeight.innerText = `height: ${pokemon.height / 10} m.`;
   //types
   let modalPokemonTypes = document.createElement("p");
   modalPokemonTypes.classList.add("modal-pokemon-types");
