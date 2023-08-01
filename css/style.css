@@ -1,6 +1,5 @@
 :root {
   font-family: "Open Sans", sans-serif;
-  background-color: antiquewhite;
 }
 body {
   background-color: rgb(255, 231, 235);
@@ -11,6 +10,7 @@ ul {
   align-content: center;
   align-items: center;
   justify-content: center;
+  margin-top: 100px;
 }
 
 .list-group-item {
@@ -28,6 +28,14 @@ ul {
   width: 250px;
   padding: 15px;
 }
+
+.navbar {
+  background-color: rgb(255, 255, 255);
+}
+.navbar-brand img {
+  width: 100px;
+}
+
 .btn-primary {
   background-color: palevioletred;
   border: none;
