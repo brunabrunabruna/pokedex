@@ -25,14 +25,7 @@ let pokemonRepository = (function () {
 
   //loads some details inside the pokemon objects: pokemon > detailsUrl > details. then map these details to item.height, item.types, etc.
   //the item parameter will be refering to the individual pokemon objs
-  //  |
-  //  |
-  //  |
-  //  |
-  //  |
-  //  |
-  //  |
-  //  V
+
   function loadDetails(pokemon) {
     let url = pokemon.detailsUrl;
     return fetch(url)
@@ -135,14 +128,7 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
-//  |
-//  |
-//  |
-//  |
-//  |
-//  |
-//  |
-//  V
+
 //creates popup window with pokemon name and details
 const modalBody = document.querySelector(".modal-body");
 const modalTitle = document.querySelector(".modal-title");
@@ -161,14 +147,14 @@ function showModal(pokemon) {
 
   //front img
   let modalPokemonImg = document.createElement("img");
-  modalPokemonImg.classList.add("modal-img", "card__side");
+  modalPokemonImg.classList.add("modal-img", "card-side");
   modalPokemonImg.src = pokemon.imageUrl;
   //back img
   let modalPokemonImgBack = document.createElement("img");
   modalPokemonImgBack.classList.add(
     "modal-img",
-    "card__side",
-    "card__side--back"
+    "card-side",
+    "card-side--back"
   );
   modalPokemonImgBack.src = pokemon.imageUrlBack;
 
@@ -196,13 +182,3 @@ function showModal(pokemon) {
 
   modalContainer.appendChild(modalDialog);
 }
-// modalContainer.addEventListener("click", (e) => {
-//   if (e.target === modalContainer) {
-//     modalContainer.classList.remove("is-visible");
-//   }
-// });
-// window.addEventListener("keydown", (e) => {
-//   if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
-//     modalContainer.classList.remove("is-visible");
-//   }
-// });

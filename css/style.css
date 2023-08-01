@@ -25,10 +25,9 @@ ul {
 }
 
 .list-group-item button {
-  /* font-variant-caps: all-small-caps; */
   text-transform: capitalize;
   font-size: 1.5rem;
-
+  border: 5px solid pink;
   width: 250px;
   padding: 15px;
 }
@@ -65,29 +64,30 @@ ul {
 .modal {
   background-color: rgba(255, 219, 243, 0.265);
 }
+.modal-header {
+  border-bottom: none;
+}
 .modal-content {
   background-color: rgb(255, 228, 233);
 }
 
 .modal-title {
   font-size: 3rem;
+
   text-transform: capitalize;
   color: palevioletred;
 }
 
 .modal-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-flow: column wrap;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
-  /* align-content: space-between; */
 }
 .modal-items {
   font-size: 1rem;
-  width: auto;
+  width: 200px;
   height: auto;
-  /* margin: auto; */
   margin-top: 20px;
   padding: 10px;
   margin: 10px;
@@ -105,7 +105,6 @@ ul {
 }
 
 .card {
-  /* position: relative; */
   width: 200px;
   height: 200px;
   cursor: pointer;
@@ -120,7 +119,7 @@ ul {
   border-radius: 10px;
   box-shadow: 3px 3px 7px 2px rgba(0, 0, 0, 0.2);
 }
-.card__side {
+.card-side {
   position: absolute;
   top: 0;
   left: 0;
@@ -129,48 +128,10 @@ ul {
   height: 100%;
   transition: 1s ease-in-out;
 }
-.card__side--back {
+.card-side--back {
   transform: rotateY(0.5turn);
 }
 
-.card__side > img {
+.card-side > img {
   object-fit: cover;
 }
-
-/* 
-@media (max-width: 700px) {
-  .modal {
-    margin: auto;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    max-width: 350px;
-    text-align: center;
-    position: relative;
-    border-radius: 10px;
-  }
-
-  .modal-pokemon-name {
-    font-size: 1rem;
-    width: 150px;
-    margin-top: 0px;
-  }
-
-  .modal-pokemon-height {
-    font-size: 0.8rem;
-    width: 100px;
-    margin-top: 20px;
-  }
-
-  .modal-pokemon-types {
-    font-size: 0.8rem;
-    width: 100px;
-  }
-
-  .modal-pokemon-img {
-    margin-top: 20px;
-
-    width: 100px;
-    border: 2px solid yellow;
-  }
-} */
