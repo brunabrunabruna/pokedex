@@ -12,7 +12,11 @@ ul {
   justify-content: center;
   margin-top: 100px;
 }
-
+.navbar-brand {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 .list-group-item {
   list-style-type: none;
   margin: 10px;
