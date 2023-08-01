@@ -2,122 +2,130 @@
   font-family: "Open Sans", sans-serif;
   background-color: antiquewhite;
 }
+body {
+  background-color: rgb(255, 231, 235);
+}
 ul {
   display: flex;
   flex-flow: column;
   align-content: center;
   align-items: center;
   justify-content: center;
-  padding: 0;
 }
 
-li {
+.list-group-item {
   list-style-type: none;
-}
-
-.button {
-  width: 250px;
-  height: 100px;
   margin: 10px;
-  color: rgb(77, 77, 77);
-  background-color: white;
-  border: 5px solid rgb(140, 135, 129);
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: "open sans";
-  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.list-group-item button {
+  /* font-variant-caps: all-small-caps; */
+  text-transform: capitalize;
   font-size: 1.5rem;
+
+  width: 250px;
+  padding: 15px;
+}
+.btn-primary {
+  background-color: palevioletred;
+  border: none;
+  border-radius: 10px;
+}
+.btn-secondary {
+  border-radius: 10px;
 }
 
-.modal-container {
-  display: none;
+.btn-primary:hover {
+  color: #fff;
+  background-color: rgb(253, 144, 181);
+  border-color: rgba(0, 0, 0, 0);
 }
 
-.modal-container.is-visible {
-  display: flex;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: rgb(253, 144, 181);
+  border-color: rgba(0, 0, 0, 0);
 }
 .modal {
-  margin: auto;
+  background-color: rgba(255, 219, 243, 0.265);
+}
+.modal-content {
+  background-color: rgb(255, 228, 233);
+}
+
+.modal-title {
+  font-size: 3rem;
+  text-transform: capitalize;
+  color: palevioletred;
+}
+
+.modal-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  box-sizing: border-box;
-  background-color: antiquewhite;
-  padding: 55px;
-  width: 100%;
-  max-width: 700px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: space-between; */
+}
+.modal-items {
+  font-size: 1rem;
+  width: auto;
+  height: auto;
+  /* margin: auto; */
+  margin-top: 20px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid palevioletred;
   text-align: center;
-  position: relative;
-  color: rgb(77, 77, 77);
-
-  border-radius: 10px;
+  text-transform: capitalize;
 }
 
-.close-button {
-  background: none;
-  border: none;
-  position: absolute;
-  right: 1rem;
-  top: 0;
-  font-size: 1.5rem;
-  margin: 20px;
+/* //rotating */
+
+.card:hover {
+  transform: rotateY(0.5turn);
+}
+
+.card {
+  /* position: relative; */
+  width: 200px;
+  height: 200px;
   cursor: pointer;
-  color: rgb(77, 77, 77);
-}
-.modal-pokemon-name {
-  font-size: 2rem;
-  width: 200px;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: white;
-  border: 2px solid rgb(140, 135, 129);
-}
-.modal-pokemon-height {
-  font-size: 1rem;
-  width: 100px;
-  margin: auto;
-  margin-top: 20px;
+  transition: 1s ease-in-out;
+  transform-style: preserve-3d;
 
-  padding: 10px;
-  border-radius: 10px;
-  background-color: white;
-  border: 2px solid rgb(140, 135, 129);
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
-.modal-pokemon-types {
-  font-size: 1rem;
-  width: 100px;
-  margin: auto;
-  margin-top: 20px;
-  padding: 10px;
   border-radius: 10px;
-  background-color: white;
-  border: 2px solid rgb(140, 135, 129);
-}
-
-.modal-pokemon-img {
-  width: 200px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  border: 5px solid yellow;
   box-shadow: 3px 3px 7px 2px rgba(0, 0, 0, 0.2);
 }
-.modal-pokemon-img-container {
-  /* background-color: aqua; */
+.card__side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  transition: 1s ease-in-out;
 }
-.modal-pokemon-text-container {
-  /* background-color: antiquewhite; */
+.card__side--back {
+  transform: rotateY(0.5turn);
 }
 
+.card__side > img {
+  object-fit: cover;
+}
+
+/* 
 @media (max-width: 700px) {
   .modal {
     margin: auto;
@@ -153,4 +161,4 @@ li {
     width: 100px;
     border: 2px solid yellow;
   }
-}
+} */
