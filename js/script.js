@@ -15,6 +15,7 @@ let pokemonRepository = (function () {
             name: item.name,
             detailsUrl: item.url,
           };
+          // console.log(pokemon);
           add(pokemon);
         });
       })
@@ -33,6 +34,9 @@ let pokemonRepository = (function () {
         return response.json();
       })
       .then(function (details) {
+        //adds preview image
+        pokemon.previewImageUrl = details.sprites.front_default;
+
         //adds front image
         pokemon.imageUrl =
           details.sprites.other["official-artwork"].front_default;
@@ -93,9 +97,14 @@ let pokemonRepository = (function () {
     button.setAttribute("data-toggle", "modal");
     button.setAttribute("data-target", "#pokemonModal");
 
-    button.addEventListener("click", () => {
-      modalContainer.classList.add("is-visible");
-    });
+    //creates image preview
+    let imgPreview = document.createElement("img");
+    imgPreview.classList.add("img-preview");
+
+    for (let i = 0; i < pokemonList.length; i++) {
+      imgPreview.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
+    }
+
     //listens for click, then calls function when clicked
     button.addEventListener("click", function () {
       showDetails(pokemon);
@@ -103,7 +112,7 @@ let pokemonRepository = (function () {
     // sets button text to the name of the pokemon
     button.innerText = pokemon.name;
     //styling of the button
-
+    button.appendChild(imgPreview);
     listItem.appendChild(button);
     pokemonUl.appendChild(listItem);
   }
@@ -132,7 +141,6 @@ pokemonRepository.loadList().then(function () {
 //creates popup window with pokemon name and details
 const modalBody = document.querySelector(".modal-body");
 const modalTitle = document.querySelector(".modal-title");
-const modalHeader = document.querySelector(".modal-header");
 
 function showModal(pokemon) {
   //clears modal container if it had anything inside
@@ -177,8 +185,4 @@ function showModal(pokemon) {
   modalPokemonImgWrapper.appendChild(modalPokemonImg);
   modalPokemonImgWrapper.appendChild(modalPokemonImgBack);
   modalBody.appendChild(modalPokemonImgWrapper);
-
-  modalDialog.appendChild(modalContent);
-
-  modalContainer.appendChild(modalDialog);
 }

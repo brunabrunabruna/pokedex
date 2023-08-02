@@ -16,7 +16,7 @@
     "url": "https://github.com/brunabrunabruna/simple-js-app/issues"
   },
   "homepage": "https://github.com/brunabrunabruna/simple-js-app#readme",
-  "dependencies": {
+  "devDependencies": {
     "eslint": "^8.46.0"
   }
 }
