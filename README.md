@@ -19,14 +19,17 @@ data from an external API and enables the viewing of data points in detail.
 https://brunabrunabruna.github.io/pokedex/
 
 ![screenshot of the pokedex app](./img/pokedex-screenshot1.png)
+![screenshot of the pokedex app](./img/pokedex-screenshot2.png)
 
 ### Technologies
 
 the Pokedex Website was written in the following languages:
--HTML
--CSS
--Javascript
+
+- HTML
+- CSS
+- Javascript
 
 Using libraries:
--Bootstrap
--Polyfil (used for Fetch and Promise)
+
+- Bootstrap
+- Polyfil (used for Fetch and Promise)
