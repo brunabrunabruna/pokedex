@@ -18,7 +18,7 @@ data from an external API and enables the viewing of data points in detail.
 
 https://brunabrunabruna.github.io/pokedex/
 
-![screenshot of the pokedex app](../pokedex/img/pokedex-screenshot1.png)
+![screenshot of the pokedex app](./img/pokedex-screenshot1.png)
 
 ### Technologies
 
