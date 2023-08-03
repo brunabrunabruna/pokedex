@@ -10,8 +10,9 @@ let pokemonRepository = (function () {
         return response.json();
       })
       .then(function (json) {
-        json.results.forEach(function (item) {
+        json.results.forEach(function (item, index) {
           let pokemon = {
+            id: index + 1,
             name: item.name,
             detailsUrl: item.url,
           };
@@ -100,10 +101,7 @@ let pokemonRepository = (function () {
     //creates image preview
     let imgPreview = document.createElement("img");
     imgPreview.classList.add("img-preview");
-
-    for (let i = 0; i < pokemonList.length; i++) {
-      imgPreview.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`;
-    }
+    imgPreview.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
 
     //listens for click, then calls function when clicked
     button.addEventListener("click", function () {

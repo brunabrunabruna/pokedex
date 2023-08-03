@@ -29,7 +29,12 @@ ul {
   font-size: 1.5rem;
   border: 5px solid pink;
   width: 250px;
-  padding: 15px;
+  padding: 0;
+  padding-left: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .navbar {
