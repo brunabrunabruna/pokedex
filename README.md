@@ -23,7 +23,6 @@ https://brunabrunabruna.github.io/pokedex/
 ### Technologies
 
 the Pokedex Website was written in the following languages:
-
 -HTML
 -CSS
 -Javascript
