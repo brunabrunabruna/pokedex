@@ -18,6 +18,8 @@ data from an external API and enables the viewing of data points in detail.
 
 https://brunabrunabruna.github.io/pokedex/
 
+![screenshot of the pokedex app](../pokedex/img/pokedex-screenshot1.png)
+
 ### Technologies
 
 the Pokedex Website was written in the following languages:
