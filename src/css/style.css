@@ -11,7 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 100px;
-  flex-flow: wrap;
+  flex-flow: row wrap;
 }
 .navbar-brand {
   justify-content: center;
