@@ -4,13 +4,14 @@
 body {
   background-color: rgb(255, 231, 235);
 }
-ul {
+
+.list-group {
   display: flex;
-  flex-flow: column;
   align-content: center;
   align-items: center;
   justify-content: center;
   margin-top: 100px;
+  flex-flow: wrap;
 }
 .navbar-brand {
   justify-content: center;
